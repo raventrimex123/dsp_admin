@@ -1,9 +1,10 @@
 import React from "react";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
 export default function userInfo({ navigation, route }) {
   const userData = route.params;
+  console.log(userData["userInfo"].image);
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -24,9 +25,23 @@ export default function userInfo({ navigation, route }) {
           alignItems: "center",
         }}
       >
-        <View style={{ backgroundColor: "#D7D7D7", padding: 20 }}>
-          <SimpleLineIcons name="user" size={55} color="#6B6B6B" />
-        </View>
+        {userData["userInfo"].image ? (
+          <Image
+            source={{
+              uri: `data:image/png;base64,${userData["userInfo"].image}`,
+            }}
+            style={{
+              width: 100,
+              height: 100,
+              borderWidth: 1,
+              borderColor: "black",
+            }}
+          />
+        ) : (
+          <View style={{ backgroundColor: "#D7D7D7", padding: 20 }}>
+            <SimpleLineIcons name="user" size={55} color="#6B6B6B" />
+          </View>
+        )}
       </View>
       <View
         style={{

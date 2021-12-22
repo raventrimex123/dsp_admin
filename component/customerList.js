@@ -7,6 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
+import ConfigData from "../config.json";
 
 export default function customerList({ navigation, route }) {
   const userData = route.params;
@@ -17,7 +18,7 @@ export default function customerList({ navigation, route }) {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://dfa-db.herokuapp.com/api/dsp/customer/${userData["userInfo"]._id}`,
+        `${ConfigData.DB_LINK}api/dsp/customer/${userData["userInfo"]._id}`,
         {
           method: "GET",
           headers: {

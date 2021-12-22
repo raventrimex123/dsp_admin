@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import ConfigData from "../config.json";
 
 export default function salesReport({ navigation, route }) {
   const userID = route.params;
@@ -10,7 +11,7 @@ export default function salesReport({ navigation, route }) {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://dfa-db.herokuapp.com/api/dsp/sale/${userID["userSales"]}`,
+        `${ConfigData.DB_LINK}api/dsp/sale/${userID["userSales"]}`,
         {
           method: "GET",
           headers: {
@@ -58,9 +59,7 @@ export default function salesReport({ navigation, route }) {
                     >
                       <Text style={{ fontSize: 16 }}>Over All Load:</Text>
                     </View>
-                    <Text style={{ fontSize: 16 }}>
-                      {user.sales.load.overall}
-                    </Text>
+                    <Text style={{ fontSize: 16 }}>{user.load_overall}</Text>
                   </View>
                   <View
                     style={{
@@ -75,7 +74,7 @@ export default function salesReport({ navigation, route }) {
                       <Text style={{ fontSize: 16 }}>Load Distributed:</Text>
                     </View>
                     <Text style={{ fontSize: 16 }}>
-                      {user.sales.load.distributed}
+                      {user.load_distributed}
                     </Text>
                   </View>
                   <View
@@ -90,9 +89,7 @@ export default function salesReport({ navigation, route }) {
                     >
                       <Text style={{ fontSize: 16 }}>Load Balance:</Text>
                     </View>
-                    <Text style={{ fontSize: 16 }}>
-                      {user.sales.load.balance}
-                    </Text>
+                    <Text style={{ fontSize: 16 }}>{user.load_balance}</Text>
                   </View>
                 </View>
                 <Text style={{ fontSize: 25 }}>SIM CARD</Text>
@@ -109,9 +106,7 @@ export default function salesReport({ navigation, route }) {
                     >
                       <Text style={{ fontSize: 16 }}>Over All SIM:</Text>
                     </View>
-                    <Text style={{ fontSize: 16 }}>
-                      {user.sales.simcard.overall}
-                    </Text>
+                    <Text style={{ fontSize: 16 }}>{user.simcard_overall}</Text>
                   </View>
                   <View
                     style={{
@@ -126,7 +121,7 @@ export default function salesReport({ navigation, route }) {
                       <Text style={{ fontSize: 16 }}>SIM Distributed:</Text>
                     </View>
                     <Text style={{ fontSize: 16 }}>
-                      {user.sales.simcard.distributed}
+                      {user.simcard_distributed}
                     </Text>
                   </View>
                   <View
@@ -141,9 +136,7 @@ export default function salesReport({ navigation, route }) {
                     >
                       <Text style={{ fontSize: 16 }}>SIM Balance:</Text>
                     </View>
-                    <Text style={{ fontSize: 16 }}>
-                      {user.sales.simcard.balance}
-                    </Text>
+                    <Text style={{ fontSize: 16 }}>{user.simcard_balance}</Text>
                   </View>
                 </View>
                 <Text style={{ fontSize: 25 }}>POCKET WIFI</Text>
@@ -161,7 +154,7 @@ export default function salesReport({ navigation, route }) {
                       <Text style={{ fontSize: 16 }}>Over All PW:</Text>
                     </View>
                     <Text style={{ fontSize: 16 }}>
-                      {user.sales.pocketwifi.overall}
+                      {user.pocketwifi_overall}
                     </Text>
                   </View>
                   <View
@@ -177,7 +170,7 @@ export default function salesReport({ navigation, route }) {
                       <Text style={{ fontSize: 16 }}>PW Distributed:</Text>
                     </View>
                     <Text style={{ fontSize: 16 }}>
-                      {user.sales.pocketwifi.distributed}
+                      {user.pocketwifi_distributed}
                     </Text>
                   </View>
                   <View
@@ -193,7 +186,7 @@ export default function salesReport({ navigation, route }) {
                       <Text style={{ fontSize: 16 }}>PW Balance:</Text>
                     </View>
                     <Text style={{ fontSize: 16 }}>
-                      {user.sales.pocketwifi.balance}
+                      {user.pocketwifi_balance}
                     </Text>
                   </View>
                 </View>

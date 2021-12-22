@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DFAA",
-    "slug": "DFAA",
+    "name": "DSPA",
+    "slug": "DSPA",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.DSPA.miruza"
     },
     "web": {
       "favicon": "./assets/favicon.png"
